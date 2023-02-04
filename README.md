@@ -26,30 +26,38 @@ The source code and dataset of Tritor will be published here after the paper is 
   
 ```shell  
 Amain  
-|-- AST_Generation_and_Enhancement.py     	// implement the AST Generation and Enhancement phase  
-|-- Triads_Extraction_and_Feature_Extraction.py     // implement the first two phases:  Triads_Extraction and Feature_Extraction
-|-- Classification.py   // implement the Classification phase  
+|-- ast_generation_and_division.py     	// implement the first two phases: AST Generation phase and Division phase  
+|-- get_method_vector.py     // implement part of the Feature Extraction phase
+|-- get_similarity_feature.py     // implement part of the Feature Extraction phase
+|-- classification.py   // implement the Classification phase  
 ```
 
-### AST_Generation_and_Enhancement.py
+### ast_generation_and_division.py
 - Input: dataset with source codes
-- Output: semantically enhanced AST of source codes 
+- Output: various subtrees of source codes 
 ```
-python AST_Generation_and_Enhancement.py
-```
-
-### Triads_Extraction_and_Feature_Extraction.py
-- Input: semantically enhanced AST of source codes
-- Output: feature vectors of code pairs 
-```
-python Triads_Extraction_and_Feature_Extraction.py
+python ast_generation_and_division.py
 ```
 
-### Classification.py
+### get_method_vector.py
+- Input: various subtrees of source codes
+- Output: feature vectors of source codes 
+```
+python get_method_vector.py
+```
+
+### get_similarity_feature.py 
+- Input: feature vectors of source codes
+- Output: similarity features of code pairs 
+```
+python get_similarity_feature.py 
+```
+
+### classification.py
 - Input: feature vectors of dataset
 - Output: recall, precision, and F1 scores of machine learning algorithms
 ```
-python Classification.py
+python classification.py
 ```
 
 # Parameter details of our comparative tools
@@ -64,3 +72,4 @@ python Classification.py
 |CDLH      |Code length 32 for learned binary hash codes, size of word embeddings: 100 |
 |TBCNN      |Convolutional layer dim size: 300，dropout rate: 0.5, batch size: 10 |
 |FCCA      |Size of hidden states: 128(Text), 128(AST), embedding size: 300(Text), 300(AST), 64(CFG) clipping gradient range: (-1.2，1.2), epoch: 50, initial learning rate: 0.0005, dropout:0.6, batchsize: 32|
+|Amain      |distance measure: Euclidean distance, Cosine distance, Manhattan distance, Chebyshev distance, machine learning algorithm: random forest, depth: 64 |
