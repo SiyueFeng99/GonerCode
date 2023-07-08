@@ -1,26 +1,4 @@
-# Goner: Building Tree-based N-gram-like Model for Semantic Code Clone Detection
-Goner is a novel tree-based scalable semantic code clone detection method by transforming the heavy-weight tree processing into efficient N-gram-like subtrees analysis.
-We build a variant of N-gram model to partition the original complex tree into small subtrees.
-After collecting all subtrees, we divide them into different groups according to the positions of the subtree nodes, and then calculate the similarity of the same group between two functions one by one.
-Similarity scores of all groups are made up of a feature vector.
-After obtaining all feature vectors, we use them to train a machine learning-based semantic code clone detector (i.e., Goner).
-
-Goner is divided into four phases: AST Generation, AST Division, Feature Extraction, and Classification.
-
-1. AST Generation: 
-The purpose of this phase is to statically analyze the input program and obtain an \emph{abstract syntax tree} (AST) for each code. 
-The input to this phase is a method while the output is an AST.
-2. AST Division: 
-The purpose of this phase is to build a N-gram-like model to partition the original AST into subtrees. 
-The input of this phase is an AST while the output is the number of various subtrees.
-3. Feature Extraction: 
-The purpose of this phase is to construct a feature vector by calculating the similarity of different types of subtrees.
-The input of this phase is subtrees of two methods while the output is a feature vector.
-4. Classification: 
-The purpose of this phase is to train a code clone detector by using some feature vectors and then use the detector to find code clones.
-The input of this phase is a feature vector of two methods while the output is the corresponding label (\ie clone or not clone).
-
-The source code and dataset of Tritor will be published here after the paper is accepted.
+# Goner
 
 # Project Structure  
   
